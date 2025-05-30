@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HONORINE Shop</title>
+  <!-- Feuilles de style et bibliothèques externes -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #a0b8d7;
+      color: #8c5252;
+    }
+
+    .navbar-custom {
+      background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: background 0.6s ease;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      color: white !important;
+    }
+
+    .navbar-brand img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .navbar-nav .nav-link {
+      color: white;
+      font-weight: 500;
+      margin-left: 15px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #ffd700;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(rgba(255,255,255,0.1), transparent);
+      animation: rotateBg 20s linear infinite;
+      top: -50%;
+      left: -50%;
+      z-index: 0;
+    }
+
+    @keyframes rotateBg {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      z-index: 1;
+      position: relative;
+    }
+
+    .btn-shop {
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      color: white;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-shop:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .product-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .footer {
+      background: #222;
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .decor-line {
+      width: 60px;
+      height: 4px;
+      background: #ff4b2b;
+      margin: 10px auto;
+      border-radius: 2px;
+    }
+
+    .text-muted {
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <!-- Barre de navigation -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top" data-aos="fade-down">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="https://img.icons8.com/fluency/48/shop.png" alt="Logo">
+        HONORINE Shop
+      </a>
+      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#produits">Produits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Section Hero -->
+  <section class="hero" data-aos="fade-in">
+    <div class="container">
+      <h1>Bienvenue chez HONORINE Shop</h1>
+      <p class="lead">Découvrez nos produits premium pour un style de vie moderne</p>
+      <a href="#produits" class="btn btn-shop mt-4">Voir les Produits</a>
+    </div>
+  </section>
+<!-- Section Produits avec Popups "Waouh" -->
+<section class="container my-5" id="produits">
+  <div class="text-center mb-5" data-aos="fade-up">
+    <h2 class="fw-bold">Nos Meilleures Offres</h2>
+    <div class="decor-line"></div>
+    <p class="text-muted">Produits de qualité avec livraison rapide</p>
+  </div>
+  <div class="row g-4">
+    <!-- Produit Montre connectée -->
+    <div class="col-md-4" data-aos="zoom-in">
+      <div class="product-card position-relative">
+        <img src="images/montre-connectee-tekday-en-silicone-bleu.webp" class="product-img" alt="Montre Connectée">
+        <div class="p-3">
+          <h5>Montre Connectée Class</h5>
+          <p class="text-muted">Design moderne, suivi santé et connectivité intelligente.</p>
+          <button class="btn btn-dark w-100" data-bs-toggle="modal" data-bs-target="#modalMontre">Voir détails</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Produit Écouteurs -->
+    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+      <div class="product-card position-relative">
+        <img src="images/Ecouteurs_.jpg" class="product-img" alt="Casque Bluetooth">
+        <div class="p-3">
+          <h5>Casque Bluetooth</h5>
+          <p class="text-muted">Son immersif, design épuré et Bluetooth 5.0</p>
+          <button class="btn btn-dark w-100" data-bs-toggle="modal" data-bs-target="#modalEcouteurs">Voir détails</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Produit Sacs -->
+    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+      <div class="product-card position-relative">
+        <img src="images/Sacs.jpeg" class="product-img" alt="Sac à Main LV">
+        <div class="p-3">
+          <h5>Sacs en cuir LV</h5>
+          <p class="text-muted">Élégant, spacieux et confectionné en cuir premium.</p>
+          <button class="btn btn-dark w-100" data-bs-toggle="modal" data-bs-target="#modalSac">Voir détails</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODALS - Popups produits avec effet "waouh" -->
+<div class="modal fade" id="modalMontre" tabindex="-1" aria-labelledby="modalMontreLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="modalMontreLabel">Montre Connectée Class</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>Suivi cardiaque et sommeil</li>
+          <li>Notifications intelligentes</li>
+          <li>Design élégant et moderne</li>
+          <li>Étanchéité IP68</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalEcouteurs" tabindex="-1" aria-labelledby="modalEcouteursLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="modalEcouteursLabel">Casque Bluetooth</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>Bluetooth 5.0 stable</li>
+          <li>Autonomie jusqu’à 20h</li>
+          <li>Boîtier de charge compact</li>
+          <li>Contrôles tactiles</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalSac" tabindex="-1" aria-labelledby="modalSacLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="modalSacLabel">Sac en cuir LV</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>Cuir vegan haut de gamme</li>
+          <li>Fermeture magnétique</li>
+          <li>Compartiments spacieux</li>
+          <li>Style chic et minimaliste</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Section Contact -->
+  <section class="container my-5" id="contact">
+    <div class="text-center mb-4" data-aos="fade-up">
+      <h2 class="fw-bold">Contactez-nous</h2>
+      <div class="decor-line"></div>
+      <p class="text-muted">Vous avez une question ? Nous sommes là pour vous répondre.</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <form data-aos="fade-up" data-aos-delay="100">
+          <div class="mb-3">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="nom" placeholder="Votre nom">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Votre email">
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="Votre message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-shop w-100">Envoyer</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- Pied de page -->
+  <footer class="footer" data-aos="fade-up">
+    <div class="container">
+      <p>&copy; 2025 HONORINE Groupe - Tous droits réservés</p>
+    </div>
+  </footer>
+  <!-- Scripts JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
+</body>
+</html>

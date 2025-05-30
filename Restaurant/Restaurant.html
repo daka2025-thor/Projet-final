@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Les Délices d'Honorine</title>
+  
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      scroll-behavior: smooth;
+      background-color: #fff8f1;
+    }
+
+    .map-container {
+      min-height: 400px;
+    }
+    .min-height-400 {
+      min-height: 400px;
+    }
+
+    .map-container iframe {
+      border: 0;
+    }
+
+    .min-height-400 {
+      min-height: 400px;
+    }
+
+    nav.navbar {
+      background-color: #fff4e6;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #e65100;
+    }
+
+    .nav-link {
+      color: #444 !important;
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, #ffe0b2, #ffcc80);
+      text-align: center;
+      padding: 100px 20px;
+      color: #4e342e;
+    }
+
+    .hero-section h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .hero-section p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .btn-glow {
+      background: linear-gradient(45deg, #ffa726, #fb8c00);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(255, 152, 0, 0.6);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .btn-glow:hover {
+      background: #e65100;
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(255, 152, 0, 0.8);
+    }
+
+    section {
+      padding: 60px 20px;
+    }
+
+    .card {
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    footer {
+      background-color: #fff4e6;
+      text-align: center;
+      padding: 20px;
+      color: #795548;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <!-- Logo -->
+    <a class="navbar-brand" href="#">
+      <img src="images/logo-png.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
+      Les Délices d'Honorine
+    </a>
+    <!-- Bouton pour mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Liens du menu -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Menu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Réservations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero" data-aos="fade-in">
+    <div class="container">
+      <h1>Bienvenue aux Délices d'Honorine</h1>
+      <p>Une expérience culinaire unique aux saveurs exquises.</p>
+      <a href="#menu" class="btn btn-glow">Explorer le Menu</a>
+    </div>
+  </section>
+  <!-- Menu Section -->
+  <section id="menu" data-aos="fade-up">
+  <div class="container text-center">
+    <h2 class="mb-5">Notre Menu</h2>
+
+    <!-- Menus principaux -->
+    <div class="row g-4 mb-5">
+      <div class="col-md-4">
+        <div class="card h-100 p-3">
+          <img src="images/entree.jpg" class="card-img-top rounded" alt="Entrées">
+          <div class="card-body">
+            <h4 class="card-title">Entrées</h4>
+            <p class="card-text">Samoussas, nems, salades fraîches...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 p-3">
+          <img src="images/plat.jpg" class="card-img-top rounded" alt="Plats">
+          <div class="card-body">
+            <h4 class="card-title">Plats</h4>
+            <p class="card-text">Riz sauté, poulet DG, spécialités locales...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 p-3">
+          <img src="images/dessert.jpg" class="card-img-top rounded" alt="Desserts">
+          <div class="card-body">
+            <h4 class="card-title">Desserts</h4>
+            <p class="card-text">Crèmes, gâteaux, fruits de saison...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Autres suggestions -->
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 p-3">
+          <img src="images/menu_special1.jpg" class="card-img-top rounded" alt="Menu Spécial 1">
+          <div class="card-body">
+            <h5 class="card-title">Menu Végétarien</h5>
+            <p class="card-text">Une sélection saine de plats sans viande pour tous les goûts.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 p-3">
+          <img src="images/menu_special2.jpg" class="card-img-top rounded" alt="Menu Spécial 2">
+          <div class="card-body">
+            <h5 class="card-title">Menu Enfant</h5>
+            <p class="card-text">Des portions adaptées et des saveurs douces pour les plus jeunes.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 p-3">
+          <img src="images/menu_special3.jpg" class="card-img-top rounded" alt="Menu Spécial 3">
+          <div class="card-body">
+            <h5 class="card-title">Menu du Chef</h5>
+            <p class="card-text">Une création quotidienne signée par notre chef cuisinier.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- À propos Section -->
+  <section id="À-propos" data-aos="fade-left">
+    <div class="container text-center">
+      <h2 class="mb-4">À propos de nous</h2>
+      <p>
+        Fondé par Honorine, passionnée de cuisine depuis l’enfance, notre restaurant propose des plats faits maison, 
+        inspirés des traditions culinaires africaines et européennes. Chaque bouchée raconte une histoire !
+      </p>
+    </div>
+  </section>
+  <!-- Section Contact + Bouton -->
+  <section id="contact" class="py-5" data-aos="zoom-in-up">
+  <div class="container">
+    <h2 class="text-center mb-5 text-glow">Contactez-nous</h2>
+    <div class="row g-4">
+      <!-- Coordonnées -->
+      <div class="col-md-6" data-aos="fade-right">
+        <div class="shadow rounded-4 overflow-hidden h-100" style="min-height: 400px;">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.7571109057166!2d-4.008256584755226!3d5.348598796112215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1ec76b89d8af3%3A0x7d61b646528de6d5!2sPlateau%2C%20Abidjan!5e0!3m2!1sfr!2sci!4v1700000000000!5m2!1sfr!2sci"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            title="Carte de l'emplacement du restaurant Les Délices d'Honorine"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+      <!-- Formulaire de contact ou infos supplémentaires -->
+      <div class="col-md-6" data-aos="fade-left">
+        <div class="p-4 shadow rounded-4 h-100 bg-white">
+          <h5 class="mb-3">Envoyez-nous un message</h5>
+          <form>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Nom complet" required>
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Adresse email" required>
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" rows="5" placeholder="Votre message..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Envoyer</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+    <!-- Bouton de réservation -->
+    <div class="text-center mt-5" data-aos="fade-up">
+      <button type="button" class="btn btn-primary btn-lg px-5 rounded-pill shadow" data-bs-toggle="modal" data-bs-target="#reservationModal">
+        Réserver maintenant
+      </button>
+    </div>
+  </div>
+</section>
+<!-- Modal de réservation -->
+<div class="modal fade" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reservationModalLabel">Réservation en ligne</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body">
+        <form id="reservationForm">
+          <div class="mb-3">
+            <label for="nom" class="form-label">Nom complet</label>
+            <input type="text" class="form-control" id="nom" required>
+          </div>
+          <div class="mb-3">
+            <label for="telephone" class="form-label">Téléphone</label>
+            <input type="tel" class="form-control" id="telephone" required>
+          </div>
+          <div class="mb-3">
+            <label for="date" class="form-label">Date</label>
+            <input type="date" class="form-control" id="date" required>
+          </div>
+          <div class="mb-3">
+            <label for="heure" class="form-label">Heure</label>
+            <input type="time" class="form-control" id="heure" required>
+          </div>
+          <div class="mb-3">
+            <label for="personnes" class="form-label">Nombre de personnes</label>
+            <input type="number" class="form-control" id="personnes" min="1" required>
+          </div>
+          <button type="submit" class="btn btn-success w-100">Confirmer la réservation</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Les Délices d'Honorine. Tous droits réservés.</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

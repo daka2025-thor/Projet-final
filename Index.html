@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HONORINE Groupe - Excellence en Restauration & Voyages</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <!-- AOS animation -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #6a4c93;
+      --secondary-color: #8a5a44;
+      --accent-color: #f8a5c2;
+      --dark-color: #2d3436;
+      --light-color: #f5f6fa;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f9f9f9;
+      color: var(--dark-color);
+      margin: 0;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    /* Logo */
+    .logo {
+      width: 140px;
+      transition: transform 0.3s ease;
+    }
+    
+    .logo:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Header / Hero */
+    header {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+      height: 100vh;
+      min-height: 700px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(106, 76, 147, 0.85) 0%, rgba(138, 90, 68, 0.85) 100%);
+      z-index: 0;
+    }
+    
+    header > * {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero-title {
+      font-size: 4.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.5rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Floating animation */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    /* Section */
+    .section {
+      padding: 100px 20px;
+      position: relative;
+    }
+    
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 3rem;
+      color: var(--primary-color);
+    }
+    
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--secondary-color);
+    }
+    
+    /* Card hover effect */
+    .card {
+      transition: all 0.4s ease;
+      cursor: pointer;
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      height: 100%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+    
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .card:hover .card-img-top {
+      transform: scale(1.05);
+    }
+    
+    .card-body {
+      padding: 2rem;
+    }
+    
+    .card-title {
+      color: var(--primary-color);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    footer {
+      background: var(--dark-color);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+    
+    .footer-logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+    
+    .social-icons {
+      margin: 20px 0;
+    }
+    
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+      color: var(--accent-color);
+    }
+    
+    .header-margin-top {
+      margin-top: 80px;
+    }
+    
+    /* Animated buttons */
+    .btn-animated {
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      letter-spacing: 0.5px;
+    }
+    
+    .btn-animated::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.2) 50%, transparent 75%);
+      background-size: 400% 400%;
+      z-index: -1;
+      transition: background-position 0.8s ease;
+    }
+    
+    .btn-animated:hover::before {
+      background-position: 100% 100%;
+    }
+    
+    .btn-animated:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+    
+    .btn-restaurant {
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      color: white;
+    }
+    
+    .btn-voyage {
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color: white;
+    }
+    
+    .btn-magasin {
+      background: linear-gradient(135deg, #f7971e, #ffd200);
+      color: white;
+    }
+    
+    /* Navbar */
+    .navbar {
+      padding: 15px 0;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      background-color: white !important;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+    }
+    
+    .nav-link {
+      color: var(--dark-color) !important;
+      font-weight: 600;
+      margin: 0 10px;
+      position: relative;
+      padding: 8px 0 !important;
+    }
+    
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+    
+    /* Testimonials */
+    .testimonial-card {
+      border-left: 4px solid var(--primary-color);
+      transition: all 0.3s ease;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .testimonial-text {
+      font-style: italic;
+      position: relative;
+    }
+    
+    .testimonial-text::before {
+      content: '"';
+      font-size: 3rem;
+      color: var(--accent-color);
+      position: absolute;
+      left: -15px;
+      top: -15px;
+      opacity: 0.3;
+    }
+    
+    /* Gallery */
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      height: 250px;
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+    
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(106, 76, 147, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    
+    /* Contact Form */
+    .form-control {
+      border-radius: 10px;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.25rem rgba(106, 76, 147, 0.25);
+    }
+    
+    /* Floating elements */
+    .floating-element {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(248, 165, 194, 0.2);
+      filter: blur(40px);
+      z-index: -1;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 3.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.8rem;
+      }
+      
+      .section {
+        padding: 70px 20px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      
+      .btn-animated {
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating decorative elements -->
+  <div class="floating-element" style="width: 300px; height: 300px; top: 10%; left: 5%;"></div>
+  <div class="floating-element" style="width: 400px; height: 400px; bottom: 10%; right: 5%;"></div>
+  
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">
+        <img src="images/logo-png.png" alt="Logo HONORINE Groupe" class="logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#home">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">À propos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Nos services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#testimonials">Témoignages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#gallery">Galerie</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Hero Header -->
+  <header id="home" class="header-margin-top">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <h1 class="hero-title">HONORINE Groupe</h1>
+      <p class="hero-subtitle">Excellence en restauration, voyages d'exception et produits de qualité</p>
+      <div class="mt-5 d-flex flex-wrap justify-content-center gap-4">
+        <a href="Restaurant/Restaurant.html" class="btn btn-animated btn-restaurant">
+          <i class="bi bi-cup-straw me-2"></i> Restaurant
+        </a>
+        <a href="Agence de voyage/Agence de voyage.html" class="btn btn-animated btn-voyage">
+          <i class="bi bi-geo-alt me-2"></i> Agence de Voyage
+        </a>
+        <a href="Magasin/Magasin.html" class="btn btn-animated btn-magasin">
+          <i class="bi bi-bag-check me-2"></i> Magasin de Vente
+        </a>
+      </div>
+    </div>
+    <div class="scroll-indicator floating" data-aos="fade-up" data-aos-delay="500">
+      <i class="bi bi-chevron-down" style="font-size: 2rem;"></i>
+    </div>
+  </header>
+  
+  <!-- Présentation -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title text-center" data-aos="fade-up">À propos de nous</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-delay="100">
+          <p class="lead">
+            Fondé en 2010, HONORINE Groupe est rapidement devenu une référence dans les domaines de la restauration haut de gamme, 
+            des voyages sur mesure et de la vente de produits d'exception. Notre philosophie repose sur trois piliers fondamentaux : 
+            qualité, innovation et satisfaction client.
+          </p>
+          <p>
+            Avec une équipe de plus de 150 professionnels passionnés, nous nous engageons à créer des expériences mémorables 
+            qui dépassent les attentes de nos clients. Chaque service que nous proposons est conçu avec soin et attention aux détails, 
+            reflétant notre engagement envers l'excellence.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section Nos Services -->
+  <section id="services" class="section bg-light">
+    <div class="container">
+      <h2 class="section-title text-center" data-aos="fade-up">Nos Services</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card h-100">
+            <img src="Restaurant/images/restaurant-interieur_1127-3394.avif" class="card-img-top" alt="Restaurant">
+            <div class="card-body">
+              <h5 class="card-title">Restaurant Élégant</h5>
+              <p class="card-text">Découvrez notre cuisine gastronomique primée, préparée avec des ingrédients locaux et de saison, dans un cadre raffiné et chaleureux.</p>
+              <ul class="list-unstyled">
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Menu signature par notre chef étoilé</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Carte des vins exceptionnelle</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Service attentif et personnalisé</li>
+              </ul>
+              <a href="Restaurant/Restaurant.html" class="btn btn-outline-primary mt-3">
+                <i class="bi bi-cup-straw me-2"></i> Découvrir
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100">
+            <img src="Agence de voyage/Images agences de voyage/agence-voyage-1.png" class="card-img-top" alt="Voyage">
+            <div class="card-body">
+              <h5 class="card-title">Voyages Inoubliables</h5>
+              <p class="card-text">Partez à l'aventure avec nos offres exclusives et sur mesure pour des destinations de rêve à travers le monde.</p>
+              <ul class="list-unstyled">
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Circuits personnalisés</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Guides locaux experts</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Logements d'exception</li>
+              </ul>
+              <a href="Agence de voyage/Agence de voyage.html" class="btn btn-outline-primary mt-3">
+                <i class="bi bi-geo-alt me-2"></i> Explorer
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="card h-100">
+            <img src="Magasin/images/Best-ouvertures-magasins-premier-F.avif" class="card-img-top" alt="Magasin">
+            <div class="card-body">
+              <h5 class="card-title">Magasin de Vente</h5>
+              <p class="card-text">Retrouvez une sélection exceptionnelle de produits artisanaux et de qualité, soigneusement sélectionnés pour vous.</p>
+              <ul class="list-unstyled">
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Produits locaux et internationaux</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Artisanat d'art</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Service conseil expert</li>
+              </ul>
+              <a href="Magasin/Magasin.html" class="btn btn-outline-primary mt-3">
+                <i class="bi bi-bag-check me-2"></i> Visiter
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Témoignages -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <h2 class="section-title text-center" data-aos="fade-up">Ils nous font confiance</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card testimonial-card h-100">
+            <div class="card-body">
+              <div class="d-flex mb-3">
+                <img src="https://randomuser.me/api/portraits/women/43.jpg" class="rounded-circle me-3" width="60" alt="Client">
+                <div>
+                  <h5 class="card-title mb-1">Claire D.</h5>
+                  <div class="text-warning">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial-text">"Une expérience culinaire incroyable ! Le service est impeccable et la cuisine exquise. J'ai particulièrement apprécié l'attention portée aux détails et l'ambiance chaleureuse."</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card testimonial-card h-100">
+            <div class="card-body">
+              <div class="d-flex mb-3">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle me-3" width="60" alt="Client">
+                <div>
+                  <h5 class="card-title mb-1">Mamadou K.</h5>
+                  <div class="text-warning">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial-text">"Voyage organisé à la perfection, chaque détail a été pris en compte. L'équipe a su comprendre exactement ce que nous recherchions et a créé un itinéraire sur mesure."</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="card testimonial-card h-100">
+            <div class="card-body">
+              <div class="d-flex mb-3">
+                <img src="https://randomuser.me/api/portraits/women/65.jpg" class="rounded-circle me-3" width="60" alt="Client">
+                <div>
+                  <h5 class="card-title mb-1">Awa B.</h5>
+                  <div class="text-warning">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial-text">"Je recommande à 100%. Une équipe chaleureuse et professionnelle. Les produits du magasin sont d'une qualité exceptionnelle et le service conseil est vraiment personnalisé."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Galerie -->
+  <section id="gallery" class="section bg-light">
+    <div class="container">
+      <h2 class="section-title text-center" data-aos="fade-up">Notre univers</h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Restaurant">
+            <div class="gallery-overlay">
+              <h5 class="text-white">Notre restaurant</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Voyage">
+            <div class="gallery-overlay">
+              <h5 class="text-white">Nos voyages</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Magasin">
+            <div class="gallery-overlay">
+              <h5 class="text-white">Nos produits</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Cuisine">
+            <div class="gallery-overlay">
+              <h5 class="text-white">Notre cuisine</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1568&q=80" alt="Destination">
+            <div class="gallery-overlay">
+              <h5 class="text-white">Nos destinations</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Produits">
+            <div class="gallery-overlay">
+              <h5 class="text-white">Nos sélections</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title text-center" data-aos="fade-up">Contactez-nous</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+          <form>
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <label for="nom" class="form-label">Nom complet</label>
+                <input type="text" class="form-control" id="nom" placeholder="Votre nom" required>
+              </div>
+              <div class="col-md-6 mb-4">
+                <label for="email" class="form-label">Adresse email</label>
+                <input type="email" class="form-control" id="email" placeholder="email@example.com" required>
+              </div>
+            </div>
+            <div class="mb-4">
+              <label for="sujet" class="form-label">Sujet</label>
+              <select class="form-select" id="sujet">
+                <option selected>Choisissez un sujet</option>
+                <option>Réservation restaurant</option>
+                <option>Demande de voyage</option>
+                <option>Information produits</option>
+                <option>Autre demande</option>
+              </select>
+            </div>
+            <div class="mb-4">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" id="message" rows="5" placeholder="Dites-nous comment nous pouvons vous aider..." required></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary btn-animated px-5 py-3">
+                <i class="bi bi-send-fill me-2"></i> Envoyer
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-md-4 text-center mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="p-4 bg-light rounded">
+            <i class="bi bi-geo-alt-fill fs-1 text-primary mb-3"></i>
+            <h5>Adresse</h5>
+            <p>123 Avenue des Champs-Élysées<br>75008 Paris, France</p>
+          </div>
+        </div>
+        <div class="col-md-4 text-center mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="p-4 bg-light rounded">
+            <i class="bi bi-telephone-fill fs-1 text-primary mb-3"></i>
+            <h5>Téléphone</h5>
+            <p>+33 1 23 45 67 89<br>Lun-Ven: 9h-18h</p>
+          </div>
+        </div>
+        <div class="col-md-4 text-center mb-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="p-4 bg-light rounded">
+            <i class="bi bi-envelope-fill fs-1 text-primary mb-3"></i>
+            <h5>Email</h5>
+            <p>contact@honorine-groupe.com<br>Réponse sous 24h</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <img src="images/logo-png.png" alt="Logo HONORINE Groupe" class="footer-logo">
+      <div class="social-icons">
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-twitter-x"></i></a>
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+        <a href="#"><i class="bi bi-pinterest"></i></a>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <p class="mb-4">HONORINE Groupe est votre partenaire pour des expériences gastronomiques, des voyages d'exception et des produits de qualité. Notre engagement est votre satisfaction.</p>
+        </div>
+      </div>
+      <div class="mb-4">
+        <a href="#" class="text-white me-3">Mentions légales</a>
+        <a href="#" class="text-white me-3">Politique de confidentialité</a>
+        <a href="#" class="text-white me-3">Conditions générales</a>
+        <a href="#" class="text-white">Plan du site</a>
+      </div>
+      <p class="mb-0">&copy; 2025 Honorine Groupe by DAKA. Tous droits réservés.</p>
+    </div>
+  </footer>
+  
+  <!-- Back to top button -->
+  <a href="#" class="btn btn-primary btn-lg rounded-circle back-to-top" id="backToTop">
+    <i class="bi bi-arrow-up"></i>
+  </a>
+  
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS animation
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Back to top button
+    const backToTopButton = document.getElementById('backToTop');
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        backToTopButton.style.display = 'block';
+      } else {
+        backToTopButton.style.display = 'none';
+      }
+    });
+    
+    backToTopButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

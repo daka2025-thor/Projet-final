@@ -92,7 +92,7 @@
     /* Hero Section */
     .hero-section {
       background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                  url('https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+                  url('../Restaurant/images/Sauce\ gouagouassou\ hero.jpg') center/cover no-repeat;
       text-align: center;
       padding: 150px 20px;
       color: white;
@@ -198,6 +198,7 @@
       height: 250px;
       object-fit: cover;
       transition: transform 0.5s ease;
+      cursor: pointer;
     }
     
     .menu-card:hover .menu-img {
@@ -298,6 +299,67 @@
       visibility: visible;
     }
     
+    /* Gallery Modal */
+    .gallery-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      overflow: auto;
+    }
+    
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+      margin-top: 5%;
+    }
+    
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    
+    .close:hover {
+      color: var(--orange-ci);
+    }
+    
+    .gallery-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+      transform: translateY(-50%);
+    }
+    
+    .gallery-nav button {
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 24px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+    
+    .gallery-nav button:hover {
+      background: var(--orange-ci);
+    }
+    
     /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -327,6 +389,15 @@
       .navbar-brand {
         font-size: 1.3rem;
       }
+      
+      .gallery-nav {
+        padding: 0 10px;
+      }
+      
+      .gallery-nav button {
+        padding: 8px 12px;
+        font-size: 20px;
+      }
     }
     
     @media (max-width: 576px) {
@@ -341,6 +412,12 @@
       .btn-ivoire {
         padding: 10px 25px;
         font-size: 1rem;
+      }
+      
+      .close {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
       }
     }
   </style>
@@ -406,7 +483,7 @@
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
           <div class="menu-card">
             <div class="position-relative overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="menu-img w-100" alt="Entrées Ivoiriennes">
+              <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="menu-img w-100" alt="Entrées Ivoiriennes" onclick="openGallery('entrees')">
               <span class="menu-category">Entrées</span>
             </div>
             <div class="p-4">
@@ -417,7 +494,7 @@
                 <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Sauce claire avec viande</li>
                 <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Samoussas ivoiriens</li>
               </ul>
-              <a href="#" class="btn btn-sm btn-outline-primary">Voir plus</a>
+              <button class="btn btn-sm btn-outline-primary" onclick="openGallery('entrees')">Voir les plats</button>
             </div>
           </div>
         </div>
@@ -426,7 +503,7 @@
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
           <div class="menu-card">
             <div class="position-relative overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" class="menu-img w-100" alt="Plats Ivoiriens">
+              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" class="menu-img w-100" alt="Plats Ivoiriens" onclick="openGallery('plats')">
               <span class="menu-category">Plats Principaux</span>
             </div>
             <div class="p-4">
@@ -437,7 +514,7 @@
                 <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Foutou banane avec sauce graine</li>
                 <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Poisson braisé avec alloco</li>
               </ul>
-              <a href="#" class="btn btn-sm btn-outline-primary">Voir plus</a>
+              <button class="btn btn-sm btn-outline-primary" onclick="openGallery('plats')">Voir les plats</button>
             </div>
           </div>
         </div>
@@ -446,7 +523,7 @@
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
           <div class="menu-card">
             <div class="position-relative overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80" class="menu-img w-100" alt="Desserts Ivoiriens">
+              <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80" class="menu-img w-100" alt="Desserts Ivoiriens" onclick="openGallery('desserts')">
               <span class="menu-category">Desserts & Boissons</span>
             </div>
             <div class="p-4">
@@ -457,7 +534,7 @@
                 <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Banane plantain grillée</li>
                 <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Fruits de saison</li>
               </ul>
-              <a href="#" class="btn btn-sm btn-outline-primary">Voir plus</a>
+              <button class="btn btn-sm btn-outline-primary" onclick="openGallery('desserts')">Voir les plats</button>
             </div>
           </div>
         </div>
@@ -470,6 +547,17 @@
       </div>
     </div>
   </section>
+  
+  <!-- Gallery Modal -->
+  <div id="galleryModal" class="gallery-modal">
+    <span class="close" onclick="closeGallery()">&times;</span>
+    <div class="gallery-nav">
+      <button onclick="changeImage(-1)">&#10094;</button>
+      <button onclick="changeImage(1)">&#10095;</button>
+    </div>
+    <img class="modal-content" id="galleryImage">
+    <div id="caption" class="text-center text-white mt-3"></div>
+  </div>
   
   <!-- À propos Section -->
   <section id="about" class="section">
@@ -784,6 +872,73 @@
         this.style.transform = '';
       });
     });
+    
+    // Gallery functionality
+    const galleryImages = {
+      'entrees': [
+        {src: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80', caption: 'Alloco - Banane plantain frite'},
+        {src: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1371&q=80', caption: 'Bawin - Beignets de haricots'},
+        {src: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80', caption: 'Samoussas ivoiriens'}
+      ],
+      'plats': [
+        {src: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80', caption: 'Kedjenou - Poulet mijoté'},
+        {src: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80', caption: 'Garba - Attiéké avec thon'},
+        {src: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1381&q=80', caption: 'Foutou banane avec sauce graine'}
+      ],
+      'desserts': [
+        {src: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80', caption: 'Bissap - Jus d\'hibiscus'},
+        {src: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1557&q=80', caption: 'Gnamakoudji - Jus de gingembre'},
+        {src: 'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80', caption: 'Banane plantain grillée'}
+      ]
+    };
+    
+    let currentGallery = '';
+    let currentImageIndex = 0;
+    
+    function openGallery(galleryName) {
+      currentGallery = galleryName;
+      currentImageIndex = 0;
+      updateGalleryImage();
+      document.getElementById('galleryModal').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeGallery() {
+      document.getElementById('galleryModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+    
+    function changeImage(step) {
+      currentImageIndex += step;
+      
+      // Handle wrapping around
+      if (currentImageIndex >= galleryImages[currentGallery].length) {
+        currentImageIndex = 0;
+      } else if (currentImageIndex < 0) {
+        currentImageIndex = galleryImages[currentGallery].length - 1;
+      }
+      
+      updateGalleryImage();
+    }
+    
+    function updateGalleryImage() {
+      const gallery = galleryImages[currentGallery];
+      const image = gallery[currentImageIndex];
+      const imgElement = document.getElementById('galleryImage');
+      const captionElement = document.getElementById('caption');
+      
+      imgElement.src = image.src;
+      imgElement.alt = image.caption;
+      captionElement.innerHTML = image.caption;
+    }
+    
+    // Close gallery when clicking outside the image
+    window.onclick = function(event) {
+      const modal = document.getElementById('galleryModal');
+      if (event.target == modal) {
+        closeGallery();
+      }
+    }
   </script>
 </body>
 </html>

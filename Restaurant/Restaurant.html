@@ -455,7 +455,6 @@
       </div>
     </div>
   </nav>
-  
   <!-- Hero Section -->
   <section class="hero-section" id="home" data-aos="fade">
     <div class="container">
@@ -471,19 +470,17 @@
       </div>
     </div>
   </section>
-  
   <!-- Menu Section -->
   <section id="menu" class="section bg-light">
     <div class="container">
       <h2 class="section-title text-center" data-aos="fade-up">Notre Menu Ivoirien</h2>
       <p class="text-center mb-5" data-aos="fade-up" data-aos-delay="100">Découvrez nos spécialités préparées avec des ingrédients frais et locaux</p>
-      
       <div class="row g-4">
         <!-- Entrées -->
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
           <div class="menu-card">
             <div class="position-relative overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="menu-img w-100" alt="Entrées Ivoiriennes" onclick="openGallery('entrees')">
+              <img src="../Restaurant/images/alloco.webp" class="menu-img w-100" alt="Entrées Ivoiriennes" onclick="openGallery('entrees')">
               <span class="menu-category">Entrées</span>
             </div>
             <div class="p-4">
@@ -503,7 +500,7 @@
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
           <div class="menu-card">
             <div class="position-relative overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" class="menu-img w-100" alt="Plats Ivoiriens" onclick="openGallery('plats')">
+              <img src="../Restaurant/images/1200px-Kedjenou.jpeg" class="menu-img w-100" alt="Plats Ivoiriens" onclick="openGallery('plats')">
               <span class="menu-category">Plats Principaux</span>
             </div>
             <div class="p-4">
@@ -518,12 +515,11 @@
             </div>
           </div>
         </div>
-        
         <!-- Desserts & Boissons -->
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
           <div class="menu-card">
             <div class="position-relative overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80" class="menu-img w-100" alt="Desserts Ivoiriens" onclick="openGallery('desserts')">
+              <img src="../Restaurant/images/Bissap.jpeg" class="menu-img w-100" alt="Desserts Ivoiriens" onclick="openGallery('desserts')">
               <span class="menu-category">Desserts & Boissons</span>
             </div>
             <div class="p-4">
@@ -547,7 +543,6 @@
       </div>
     </div>
   </section>
-  
   <!-- Gallery Modal -->
   <div id="galleryModal" class="gallery-modal">
     <span class="close" onclick="closeGallery()">&times;</span>
@@ -558,13 +553,12 @@
     <img class="modal-content" id="galleryImage">
     <div id="caption" class="text-center text-white mt-3"></div>
   </div>
-  
   <!-- À propos Section -->
   <section id="about" class="section">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
-          <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="img-fluid rounded shadow-lg" alt="Restaurant Les Délices d'Honorine">
+          <img src="../Restaurant/images/garba-lbd.jpg" class="img-fluid rounded shadow-lg" alt="Restaurant Les Délices d'Honorine">
         </div>
         <div class="col-lg-6" data-aos="fade-left">
           <div class="about-content">
@@ -591,13 +585,11 @@
       </div>
     </div>
   </section>
-  
   <!-- Section Contact -->
   <section id="contact" class="section bg-light">
     <div class="container">
       <h2 class="section-title text-center" data-aos="fade-up">Contactez-nous</h2>
       <p class="text-center mb-5" data-aos="fade-up" data-aos-delay="100">Nous sommes à votre disposition pour toute question ou réservation</p>
-      
       <div class="row g-4">
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
           <div class="contact-card text-center">
@@ -606,12 +598,11 @@
             <p>Plateau, Rue des Jardins<br>Abidjan, Côte d'Ivoire</p>
           </div>
         </div>
-        
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
           <div class="contact-card text-center">
             <i class="bi bi-telephone-fill contact-icon"></i>
             <h4>Téléphone</h4>
-            <p>+225 XX XX XX XX<br>Ouvert de 8h à 22h</p>
+            <p>+225 07 58 21 05 01<br>Ouvert de 8h à 22h</p>
           </div>
         </div>
         
@@ -876,19 +867,19 @@
     // Gallery functionality
     const galleryImages = {
       'entrees': [
-        {src: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80', caption: 'Alloco - Banane plantain frite'},
-        {src: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1371&q=80', caption: 'Bawin - Beignets de haricots'},
-        {src: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80', caption: 'Samoussas ivoiriens'}
+        {src: '../Restaurant/images/banane-plantain-grillee-0-16-9.webp', caption: 'Alloco - Banane plantain frite'},
+        {src: '../Restaurant/images/1707901327103.jpeg', caption: 'Bawin - Beignets de haricots'},
+        {src: '../Restaurant/images/Samoussas-au-boeuf.jpg', caption: 'Samoussas ivoiriens'}
       ],
       'plats': [
-        {src: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80', caption: 'Kedjenou - Poulet mijoté'},
-        {src: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80', caption: 'Garba - Attiéké avec thon'},
-        {src: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1381&q=80', caption: 'Foutou banane avec sauce graine'}
+        {src: '../Restaurant/images/Kedjenou poulet mijoté.avif', caption: 'Kedjenou - Poulet mijoté'},
+        {src: '../Restaurant/images/garba-lbd.jpg', caption: 'Garba - Attiéké avec thon'},
+        {src: '../Restaurant/images/Foutou-banane-et-sauce-graine-ivoirienne.png', caption: 'Foutou banane avec sauce graine'}
       ],
       'desserts': [
-        {src: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80', caption: 'Bissap - Jus d\'hibiscus'},
-        {src: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1557&q=80', caption: 'Gnamakoudji - Jus de gingembre'},
-        {src: 'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80', caption: 'Banane plantain grillée'}
+        {src: '../Restaurant/images/Bissap.jpeg', caption: 'Bissap - Jus d\'hibiscus'},
+        {src: '../Restaurant/images/jus-de-gingembre.jpg', caption: 'Gnamakoudji - Jus de gingembre'},
+        {src: '../Restaurant/images/Poisson braisé alloco.jpg', caption: 'Banane plantain grillée'}
       ]
     };
     
